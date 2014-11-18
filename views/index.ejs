@@ -48,7 +48,7 @@
 	<script src="/assets/app/header/emoticonMenu.js"></script>
 	<script src="/assets/app/lobby/TabController.js"></script>
 	<script src="/assets/app/lobby/LobbyController.js"></script>
-	<script src="/assets/app/room/RoomController.js"></script>
+	<script src="/assets/app/lobby/roomTab.js"></script>
 	<script src="/assets/app/room/RoomHistoryController.js"></script>
 	<script src="/assets/app/input/InputController.js"></script>
 	<script src="/assets/app/room/rooms.js"></script>
@@ -60,11 +60,10 @@
 
 <div ng-include="'/assets/app/header/header.html'"></div>
 <div class="tab-content" ng-controller="TabController as tabs">
-	<div class="tab-pane">
+	<div id="lobby" class="tab-pane">
 		<div ng-include="'/assets/app/lobby/lobby.html'"></div>
 	</div>
-	<div id="" class="tab-pane" ng-repeat="membership in tabs.memberships">
-		{{membership.room.name}}
+	<div id="{{membership.room.id}}" class="tab-pane" room-tab="{{membership.room.id}}" ng-repeat="membership in tabs.memberships">
 	</div>
 </div>
 

@@ -10,25 +10,25 @@ window.app = angular.module('bunker', [
 	'angular.filter'
 ])
 	.config(function ($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise('/');
+		//$urlRouterProvider.otherwise('/');
 		$stateProvider
-			.state('lobby', {
-				url: '/',
-				templateUrl: '/assets/app/lobby/lobby.html',
-				controller: 'LobbyController as lobby'
-			})
-			.state('room', {
-				url: '/rooms/{roomId}',
-				templateUrl: '/assets/app/room/room.html',
-				controller: 'RoomController as room',
-				resolve: {
-					currentRoom: function ($stateParams, rooms) {
-						// Angular UI router will complete this before creating the controller if a $promise is returned
-						var currentRoom = rooms.get($stateParams.roomId);
-						return currentRoom.$resolved ? currentRoom : currentRoom.$promise;
-					}
-				}
-			})
+			//.state('lobby', {
+			//	url: '/',
+			//	templateUrl: '/assets/app/lobby/lobby.html',
+			//	controller: 'LobbyController as lobby'
+			//})
+			//.state('room', {
+			//	url: '/rooms/{roomId}',
+			//	templateUrl: '/assets/app/room/room.html',
+			//	controller: 'RoomController as room',
+			//	resolve: {
+			//		currentRoom: function ($stateParams, rooms) {
+			//			// Angular UI router will complete this before creating the controller if a $promise is returned
+			//			var currentRoom = rooms.get($stateParams.roomId);
+			//			return currentRoom.$resolved ? currentRoom : currentRoom.$promise;
+			//		}
+			//	}
+			//})
 			.state('roomHistory', {
 				url: '/rooms/{roomId}/history?date&message',
 				templateUrl: '/assets/app/room/roomHistory.html',
