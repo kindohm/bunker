@@ -46,6 +46,7 @@
 	<script src="/assets/app/emoticons.js"></script>
 	<script src="/assets/app/header/HeaderController.js"></script>
 	<script src="/assets/app/header/emoticonMenu.js"></script>
+	<script src="/assets/app/lobby/TabController.js"></script>
 	<script src="/assets/app/lobby/LobbyController.js"></script>
 	<script src="/assets/app/room/RoomController.js"></script>
 	<script src="/assets/app/room/RoomHistoryController.js"></script>
@@ -58,7 +59,14 @@
 <body>
 
 <div ng-include="'/assets/app/header/header.html'"></div>
-<div ui-view></div>
+<div class="tab-content" ng-controller="TabController as tabs">
+	<div class="tab-pane">
+		<div ng-include="'/assets/app/lobby/lobby.html'"></div>
+	</div>
+	<div id="" class="tab-pane" ng-repeat="membership in tabs.memberships">
+		{{membership.room.name}}
+	</div>
+</div>
 
 <script>
 	window.userId = '<%= userId %>';
